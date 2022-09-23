@@ -1,0 +1,368 @@
+React es un framework de javascript utilizado para el desarrollo web, en donde vamos a enfatizar en el desarrollo web, trabajando especificamente en las interfaces de usuario
+
+nota: (en html, junto a css utilizabamos las clases para trabajar la parte estatica de nuestra web, pero utilizabamos id para hacer la interaccion con el dom)
+nota: react no se puede utilizar con internet explorer ya que no trabaja javascript vanilla
+
+Mercado libre es un gran ejemplo de frontend utilizando react
+
+Para trabajar utilizando react, vamos a trabajar con javascript a traves del dom
+
+Lo que va a hacer react en este sentido, es hacer de intermediario entre nuestro backend y nuestro servidor a traves de nuestra aplicacion de react
+
+Nosotros vamos a conectarnos con nuestra aplicacion a traves del uso de apis, ya que las utilizamos para conectarnos a un backend, que en nuestro caso sera la simulacion mediante un firebase 
+
+Un HTMLCOLLECTION es un tipo de array, pero la diferencia entre el es que no podemos incorporarle los metodos de array, aunque podemos recorrerlo con un iterable for
+
+importante saber, que al trabajar react, siempre vamos a dividir nuestro codigo en modulos que interactuen entre si, asi trabajamos especificamente cada porcion de codigo en su funcionalidad especifica 
+
+en javascript, podemos exportar nuestros arrays, o nuestras clases que en este caso estamos trabajando 
+
+para exportar la informacion de nuestro archivo, utilizamos
+
+export default productos (en este caso el nombre del array)
+
+y en nuestra otra parte del codigo, lo llamamos con un import
+
+import productos from "/productos.js"
+
+aunque, para que esto funcione, en nuestro html tenemos que especificar que permita la importacion o la exportacion de modulos
+
+<script type= "module" src="main.js" </script>
+
+esto es mucho mas util, ya que no llenamos nuestro html de archivos js, en cambio hacer esto es mucho mas sencillo, ya que conectamos nuestros archivos entre si, y nuestro codigo queda mucho mas prolijo
+
+en el caso que queremos exportar nuestro constructor, lo podemos hacer de la misma manera
+
+pero si queremos exportar mas elementos de nuestro archivo, tenemos que sacar el default
+
+lo hacemos de la siguiente manera, especificando que elementos traemos
+
+export const productos = [producto1, producto2, producto3]
+import{Producto, productos}
+
+
+Instalacion y configuracion del entorno:
+
+Lo util de react, es que permite trabajar los componentes de una manera mas separada y mucho mas sencilla
+
+Nosotros al separar pequeños componentes, podemos especializarnos y trabajar mucho mas en profunidad en el, y que esto tampoco afecte a otras partes de nuestro codigo, que son partes independientes entre si
+
+Aunque estos componentes son independientes, y podemos trabajarlos individualmente, todos deben ser trabajados en conjunto para que entre ellos exista comunicacion
+
+Ademas, react es mucho mas rapido que javascript vanilla en lo que es la consulta al dom, esto se debe a que en react trabajamos el virtual dom
+
+Otra cosa util de react, es que podemos consultar informacion y enviarla a nuestros componentes, y no estar consultando constantemente al servidor 
+
+Aunque, React es un framework que no es tan sencillo de utilizar, como lo son frameworks en otros lenguajes
+
+Pero su util implementacion, optimiza mucho el desempeño en una aplicacion
+
+React:
+
+En react, trabajamos en tres conceptos exclusivos, Virtual Dom vs React Fiber, y la Reconcilacion
+
+https://es.reactjs.org/ esta es la pagina oficial y la documentacion de react, en ella vamos a trabajar constantemente
+
+La primer premisa que tiene react es el acceso al DOM es caro, ya que las aplicaciones que estan desarrolladas, estan todo el tiempo consultando al dom, por lo cual este acceso cuesta mas recursos y cuesta mas tiempo
+
+Pero utilizando React, la consulta al dom es algo mucho mas optimo, ya que utiliza una forma distinta de consultar al dom
+
+Virtual DOM:
+
+Esta es una forma de acceder al dom mediante algo que ofrece internamente React
+
+Y otra cosa, es que el flujo de datos es unidireccional
+
+El virtual DOM viene a solucionar todo esto, ya que el flujo de datos se guarda en la memoria, y no tenemos que acceder constantemente al dom para acceder a un elemento, y la manera de buscar la informacion es mucho mas rapida ya que se guarda en memoria 
+
+React consulta al virtual DOM, no lo consulta al dom
+
+un buen ejemplo, es que react busca la informacion a traves del contacto del celular, en vez de ir a buscarlo a la guia telefonica 
+
+el inicio de una aplicacion de React, se da un poco mas lento, ya que arranca directamente desde la memoria, pero una vez dentro es mucho mas rapido
+
+Por lo cual, el virtual DOM es una manera de identificar los elementos en conjunto
+
+
+Que es Node?
+
+mediante node js, vamos a instalar react, y cualquier framework de javascript tambien vamos a instalar usando react
+
+ya que necesitamos sacar el motor de javascript que funciona en el navegador, y poder trabajarlo en nuestra propia consola 
+
+para trabajar los frameworks, vamos a utilizar el manejador de paquetes npm
+
+vamos a instalar react mediante npm
+
+react tiene su propia cli, pero actuamente solo admite la creacion de una aplicacion
+
+(create-react-app)
+
+npx create-react-app nombre de la aplicacion
+
+npx es porque instalamos el paquete, instalacion y ejecucion del paquete
+
+de esta manera, creamos e instalamos nuestra aplicacion react, y nos aparecera una carpeta con el nombre de la aplicacion creada
+
+una vez instalado react, nos crea una carpeta con un monton de archivos
+
+y en la consola, cuando terminamos de instalar todo, escribimos 
+
+cd nombre de carpeta
+npm run start
+
+y de esta manera, ya nos crea nuestro servidor react
+
+ya no es el live server que utilizabamos anteriormente, si no que es nuestro propio servidor
+
+este proceso lo tenemos que hacer cada vez que queremos iniciar nuestra aplicacion react, como lo hicimos anteriormente con nuestro servidor django
+
+por su parte, en la carpeta react, tiene sus distintas porciones de codigo
+
+los node_modules nunca los vamos a subir a github, por lo tanto tenemos que incluirlas al gitignore
+
+un detalle, en nuestro package.json, nuestra aplicacion aparece en dependencia build y start
+
+para nosotros sera lo mismo, pero siempre que estamos trabajando o probando sobre algo, tenemos que trabajar en estado build
+
+y trabajar en start cuando el trabajo ya esta terminado sin ningun error
+
+para instalar las dependencias de otra persona, en la consola escribimos npm i, y descargamos todas las dependencias que esta trabajando otra persona
+
+importante, nuestra aplicacion react viene con un index.html automatico, y este deberia ser el unico html que tiene que tener nuestra aplicacion
+
+nuestra aplicacion react tiene una carpeta llamada public
+
+en esta carpeta es donde vamos a trabajar imagenes, y nuestro html/css 
+
+en la carpeta src, va toda la aplicacion react, como lo son 
+
+un detalle, es que vemos que el virtual dom trabaja al dom real una sola vez consultando al archivo html una unica vez, y luego renderiza toda la aplicacion
+
+la parte mas importante de la aplicacion react, es el archivo App.js
+
+en donde es trabaja javascript + html en su respectiva sintaxis
+
+basicamente es generar etiquetas html en conjunto a script js, y tambien incluyendo los estilos con sus clases en el mismo archivo js
+
+JSX y Transpiling:
+
+Bundling con webpack:
+
+Webpack es un empaquetador de modulos
+
+La utilidad de utilizar webpacks, es que optimiza a los modulos en su consulta, ya que crea carpetas especificas entre archivos similares de manera automatica
+
+agrupa todos los archivos js, todos los archivos css, etc
+
+react y angular ejecutan webpack de manera automatica 
+
+Transpiling:
+
+Transpiling es un proceso de convertir codigo escrito en un lenguaje, a otro
+
+un ejemplo de esta implementacion, es de javascript a typescript
+
+typescript es un lenguaje fuertemente tipado, a diferencia de javascript que no lo es
+
+nosotros utilizamos este proceso combinando js y html, dando como resultado JSX o javascript xml
+
+JSX es una extension de sintaxis de javascript que se parece a html 
+
+oficialmente, es una extension que permite hacer llamadas a funciones y a construccion de objetos
+
+a la hora de trabajar, tiene pocas diferencias con html 
+
+jsx es una extension de javascript, no de react, esto significa que no es algo obligatorio de utilizar, pero tiene sus recomendaciones que ya incluye el autocompletado
+
+el funcionamiento de jsx se da del modo que es un archivo html en donde se potencia con javascript
+
+lo que en html utilizabamos como class, en jsx lo utilizamos como className
+
+y tenemos que hacer una distincion entre tipo de codigo html y js, a traves del uso de llaves
+
+de esta manera podemos agregar codigo javascript, siempre entre llaves
+
+
+Para nosotros tener el autocompletado, errores y utilizar extensiones, nuestro app.js en la aplicacion, lo cambiamos a app.jsx
+
+pero solamente vamos a trabajar este tipo de archivo, en los componentes de react, en los demas archivos js no 
+
+y ahora, en nuestros componentes vamos a utilizar esta extension JS JSX Snippets
+
+JS JSX Snippets: 
+
+Este snippet permite generar una aplicacion de react automaticamente con 3 letras
+
+rfc
+
+si nosotros escribimos en nuestro archivo jsx, rfc: lo que hace es importar automaticamente react, y generar una arrow function en donde dentro de ella ejecuta codigo html que va a aparecer en nuestra pantalla
+
+Ahora, nosotros tenemos que ir trabajando entre cada parte de la aplicacion en conjunto, por ejemplo si queremos añadirle estilos a nuestra aplicacion react, nos importamos el archivo con
+
+import "./App.css"
+
+y añadimos la clase, que ahora en react llamamos className 
+
+ahora, tenemos que tener en cuenta que los estilos que aplicamos en app.css, tienen mucho mas peso que los que aplicamos en index.css, ya que en este ulimo solamente vamos a aplicar estilos generales para nuestra aplicacion
+
+un detalle a tener en cuenta, es que el autocompletado para importar las carpetas, no siempre se da, en el caso de llamar al path de nuestro app.css no nos lo ofrecio directamente
+
+https://magic.reactjs.net/htmltojsx.htm
+
+en caso de querer incorporar estilos con boostrap, podemos convertir automaticamente para evitar modificar todos los classname y los inputs
+
+una cosa al tener en cuenta, por ahora el index.js no se toca, si no que trabajaremos el resto de los componentes en app.jsx
+
+y el index.html no se agrega contenido, se trabaja unicamente para generar estilos
+
+Componentes:
+
+Los componentes son pequeñas partes de codigo que cumplen una funcion en especifico, y conforman a toda la aplicacion react
+
+La idea de estos componentes es que sean modularizados, es decir que podemos utilizarlos en distintas partes de nuestro codigo
+
+En react podemos generar estos componentes, aunque la forma de crear cada componente no es unica, hay distintas formas de crear cada componente y esto es algo sumamente debatible
+
+Diseño modular: El diseño modular se basa en generar una aplicacion real a traves de los distintos componentes react
+
+Por ej: creamos nuestro componente footer una sola vez, y utilizamos en cada una de nuestras paginas
+
+Lo unico que queda ver, es cuando modularizamos algo y cuando no
+
+Pero nuestra idea es tener nuestros distintos componentes que trabajen entre si
+
+Una gran ventaja de esto, es que al trabajar el mismo componente y consumirlo en todo el codigo, su mantencion es algo mucho mas sencilla
+
+Si cambiamos algo de este componente, este cambio tambien se ve afectado en el resto de lugares que el mismo se consume
+
+Es decir, un componente puede ser llamado dentro de otro componente
+
+Al trabajar en react, lo que haremos es trabajar una aplicacion spa (single page aplication)
+
+En react existen dos maneras de entender los componentes, que varian desde donde nos paramos a analizarlo
+
+Esto se da que existen distintos tipos de componentes y patrones
+
+Los componentes podemos crearlos, basados en clases o basados en funciones
+
+Cual es la diferencia?
+A la hora de construir componentes es mucho mas sencillo y optimo construirlos a traves de funciones
+
+El funcionamiento en los dos tipos, es de la misma manera, aunque a la hora de trabajar, es mucho mas sencillo trabajarlo como funciones que como clases
+
+Actualmente no se recomienda trabajar react utilizando clases, ya que es algo que esta obsoleto (por temas de optimizacion y facilidad)
+
+Nosotros lo que vamos a trabajar todo el tiempo, es componentes que reciban informacion y propiedades
+
+Los componentes, podemos trabajarlos en carpeta aparte, y en archivos jsx, donde a estos mismos los llamaremos desde nuestro app.jsx
+
+entonces, si nuestro componente no funciona, o tiene un error, no miramos el error en nuestro app.jsx, si no que lo miramos en nuestro componente individual
+
+Una recomendacion, es que el nombre de los componentes que creamos, siempre arranque con mayuscula, ya que esto es una buena practica
+
+Hay una extension que se llama CodeMetrics, que se encarga de trabajar con la complejidad
+
+si la complejidad es mucha, lo que tenemos que hacer seguir dividiendo el componente
+
+el numero de cuando algo es optimo o cuando no, es segun el color, ya con color amarillo es correcto
+
+un navbar de boostrap por ejemplo, seria un componente muy complejo, asi que tenemos que modularizarlo 
+
+entonces, vamos dividiendo en pequeñas porciones de codigo, copiando y pegando
+
+estas diviciones nos van a optimizar bastante el codigo
+
+Componentes II:
+
+Para trabajar react, ya no vamos a seguir trabajando con clases, por lo cual actualmente vamos a trabajar algo que nos permita trabajar los estados de los componentes funcionales, sin necesidad de trabajar con clases
+
+Para esto usamos Hooks, que son una funcion que devuelven siempre un array con dos elementos,
+
+La primera es una variable, de cualquier valor, luego una funcion para poder cambiar este valor
+
+Los eventos en React, se manejan de una manera distinta a la cual la trabajamos en javascript, ya que en react los trabajamos mediante el metodo onclick
+
+Hooks:
+
+Hay bastantes hooks, nosotros usaremos useState, useEffect y useContext, aunque existen mas como useMemo, useParams
+
+(esto esta incompleto)
+
+Promises, Asincronia y Map:
+
+Siempre que consultemos una base de datos, o una api, lo haremos utilizando Promises
+
+anteriormente, aplicamos promesas en javascript, ahora lo haremos en react
+
+Para trabajar especificamente estos elementos, vamos a crear un componente general que pueda consultar, para poder mostrar nuestra informacion
+
+Nosotros vamos a realizar una promesa que solamente va a consultar informacion estatica
+
+Un dato, en react podemos ejecutar codigo de manera estricta, para que esta ejecucion se de completa, una muestra de esto es que lo que se ejecuta lo hace 2 veces
+
+React.StrictMode
+
+Pero tambien nosotros queremos consultar una api externa, para esto vamos a crear una funcion utilizando fetch
+
+ej) const consultarAPI = () => {
+    fetch()
+}
+
+utilizaremos la siguiente api https://criptoya.com/api/dolar
+
+const consultarAPI = () => {
+    fetch(https://criptoya.com/api/dolar)
+    .then(response => response.json())
+    .then(data => console.log(data))
+}
+
+consultarAPI()
+
+ahora, tenemos que mostrar esta informacion en pantalla, pero no queremos mostrar toda esta informacion, a si que deberiamos desestructurar los datos
+
+para esto incluimos los nombres de los objetos que necesitamos, y los ponemos en nuestra consulta
+
+const consultarAPI = () => {
+    fetch("https://criptoya.com/api/dolar")
+    .then((blue, cbb, ccl, mep)) => {
+        console.log(blue, cbb, ccl, mep)
+    })
+
+}
+
+consultarAPI()
+
+pero, es mas util si todas estas propiedades simples, las trabajamos como un array, para poder aplicar metodos mejores para mostrar esta informacion en la pantalla
+
+para esto vamos a trabajar el objeto Object.entries(), en donde transformamos un objeto a un array
+
+const consultarAPI = () => {
+    fetch("https://criptoya.com/api/dolar")
+    .then((blue, cbb, ccl, mep)) => {
+        console.log(Object.entries(blue, ccb, ccl, mep))
+    })
+
+}
+
+ahora que convertimos el objeto a array, podemos aplicar el meotdo map
+
+const consultarAPI = () => {
+    fetch("https://criptoya.com/api/dolar")
+    .then((blue, cbb, ccl, mep)) => {
+        console.log(blue, cbb, ccl, mep).map(moneda, indice => <p> Tipo: (moneda[0]) - $(moneda[1]</p>)
+    })
+
+}
+
+Pero nuestro asincronismo tiene un pequeño problema con los componentes, principalmente el hook useState, ya que hace el renderizado constantemente,
+
+entonces, tenemos que consultar a otro hook para que esto no se de
+
+import React, {useState, useEffect}
+
+entonces, el useEffect se encarga de que el useState no se descontrole
+
+toda llamada asincronica tiene que darse bajo el uso de un useEffect, esto siempre se tiene que dar
+
+https://es.reactjs.org/docs/lists-and-keys.html esto es un poco de documentacion sobre el uso de keys en React
