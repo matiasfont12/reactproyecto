@@ -133,8 +133,7 @@ importante, nuestra aplicacion react viene con un index.html automatico, y este 
 
 nuestra aplicacion react tiene una carpeta llamada public
 
-en esta carpeta es donde vamos a trabajar imagenes, y nuestro html/css 
-
+en esta carpeta es donde vamos a trabajar imagenes, y nuestro html
 en la carpeta src, va toda la aplicacion react, como lo son 
 
 un detalle, es que vemos que el virtual dom trabaja al dom real una sola vez consultando al archivo html una unica vez, y luego renderiza toda la aplicacion
@@ -366,3 +365,125 @@ entonces, el useEffect se encarga de que el useState no se descontrole
 toda llamada asincronica tiene que darse bajo el uso de un useEffect, esto siempre se tiene que dar
 
 https://es.reactjs.org/docs/lists-and-keys.html esto es un poco de documentacion sobre el uso de keys en React
+
+Consumiendo APIS:
+
+Nosotros cuando trabajamos, rara vez tenemos toda nuestra informacion en nuestra aplicacion frontend, y en los grandes proyectos, esto jamas se da
+
+Entonces, vamos a estar permanentemente intercambiando informacion, procesandola y recibiendola. Y con esta misma informacion vamos a realizar determinada accion
+
+Entonces, nuestras aplicaciones van a conectarse todo el tiempo a nuestro backend, y esta informacion va a actualizarse constantemente 
+
+Un ejemplo de esto, es instagram o twitter, cuando actualizamos constantemente para recibir nueva informacion dentro de la aplicacion
+
+Hoy en dia, no hay ninguna aplicacion actual que no este todo el tiempo conectandose a un backend
+
+principalmente esto, se trabaja constantemente en las arquitecturas de software
+
+en donde las principales son el modelo cliente servidor:
+
+este modelo es un modelo muy bueno, pero la desventaja que tiene es que muchas veces, la conexion se da de manera sobrecargada y la conexion termina saturandose
+
+quizas este modelo no es el mejor modelo para redes sociales, ya que estan preparados para un numero limitado de conexiones
+
+otro modelo, es el modelo vista controlador (MVC):
+
+este modelo a diferenciad el otro permite controlar las peticiones, ya que la vista y el modelo nunca se van a conocer porque el controlador hace de intermediario
+
+a la hora de trabajar con datos, el modelo mvc es el modelo mas recomendado
+
+push:
+
+el push es otra forma de conectarnos a nuestro codigo, es otra forma de mirar la misma logica, en donde el cliente nos pide la informacion y nosotros se la tenemos que dar
+
+polling:
+
+el sistema polling, envia una pregunta para verificar si la informacion debe verificarse, y segun si o no, modifica la informacion o no
+
+esta consultando al servidor constantemente para tener una accion, cuando la informacion es simple el sistema es excelente, porque permite tener la informacion constantemente actualizada
+
+Por ejemplo, binance utiliza este sistema para actualizar los precios de las cryptomonedas cada 30s
+
+el tipo polling no es recomendado para trabajarlo en un ecommerce
+
+Metodos de petición http: https://developer.mozilla.org/es/docs/Web/HTTP/Methods
+
+
+una forma de conectarnos de nuestro frontend a nuestro backend, es a traves de routes
+
+https://openweathermap.org/
+
+training de react utilizando esta api: https://www.youtube.com/watch?v=SG5FFwLDuSQ&ab_channel=GonzaloPozzo
+
+training midudev: https://www.youtube.com/watch?v=Sko0-qSRRfU&t=2173s
+
+Routing:
+
+Routing es la forma de poder definir que cada componente cuente con su propia ruta
+
+Asi podemos buscar en detalle cada producto, o componente que creamos
+
+Para hacer routing, existe el React Routing
+
+precisamente, esto lo tenemos que instalar, aunque lamentablemente esto tiene sus incovenientes
+
+https://www.npmjs.com/package/react-router-dom
+
+en este sentido, la actualizacion que hicieron el react routing, fue destructiva con la anterior, por lo tanto la version 5 no sirve para trabajar hoy en dia
+
+solamente sirve la version 6
+
+por lo tanto, si buscamos un curso de react router dom que sea de hace 1 año, esto ya no funcionara
+
+seguramente, este diciembre/enero/febrero de este año, salga react router dom 7, y tendremos que vigilar si este cambio presenta alguna modificacion destructiva
+
+asi que en esas epocas, conviene estar atento a este tipo de modificaciones
+
+por otro lado, vamos a instalar react router dom
+
+npm i react-router-dom
+
+de esta manera instalamos esta dependencia 
+
+cuando instalamos la dependencia, en nuestra app.jsx tenemos que importar
+
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+
+luego, tenemos que definir las rutas
+
+en nuestra app.jsx vamos a definir las rutas de la aplicacion, en donde esta misma sera nuestro elemento inicial, sera un elemento que el usuario no podra visualizar, pero para nosotros sera el elemento mas importante de nuestra aplicacion
+
+lo haremos dentro del return
+
+dentro de </Routes>, vamos a definir todas las rutas que tenga nuestra aplicacion
+
+aca vamos a incluir nuestro <Route>, y definimos a cada elemento
+
+ej)
+
+</Routes> 
+ <Route element={Home} path="/"
+
+o tambien esto puede darse al reves
+
+</Routes>
+ <Route path="/" element={Home}
+
+y asi vamos definiendo cada direccion
+
+fontawesome.com 
+
+esa pagina es util para buscar iconos que necesitamos implementar a nuestro codigo 
+
+la utilidad de esto, es poder implementar rutas dinamicas}
+
+pero para trabajar el dinamismo, tenemos que trabajar las consultas por id
+
+en react router dom, hay un hook especifico que trabaja esto
+
+useState, useParams, 
+
+esta busqueda, la tenemos que acompañar utilizando fetch, en donde en el utilizaremos el metodo find
+
+ej)
+
